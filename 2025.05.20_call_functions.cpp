@@ -9,7 +9,7 @@ int main() {
     cout << "Hello" << endl;
     timer(i);
     cout << "Good bye" << endl;
-    // printVector(v);
+    printVector(v);
     return 0;
 }
 
