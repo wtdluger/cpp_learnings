@@ -15,7 +15,7 @@ int main() {
 
 /*
     linux command to compile linked files
-    g++ wtdlib.cpp 2025.05.20_call_functions.cpp -o call_functions
+    g++ 2025.05.20_call_functions.cpp wtdlib.cpp -o call_functions
 
     linux command to run
     ./call_functions
