@@ -37,3 +37,19 @@ int main()
     
     return 0;
 }
+
+/*
+    prefix vs postfix order of operations:
+    postfix = a++
+        1) postfix = a
+        2) a = a + 1
+    prefix = ++a
+        1) a = a + 1
+        2) prefix = a
+    postfix = a--
+        1) postfix = a
+        2) a = a - 1
+    prefix = a--
+        1) a = a - 1
+        2) postfix = a
+*/
