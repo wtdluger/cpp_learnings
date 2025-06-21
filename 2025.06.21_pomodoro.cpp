@@ -20,9 +20,10 @@ int beepTone()
 {
     sf::SoundBuffer buffer;
 
-    // Load the sound file
-    if (!buffer.loadFromFile("Buzzer.wav")) {
-        std::cerr << "Failed to load Buzzer.wav\n";
+    /* Load the sound file */
+    string soundFile = "Beep-09.ogg"; // Buzzer.wav or Beep-09.ogg
+    if (!buffer.loadFromFile(soundFile)) {
+        std::cerr << "Failed to load Sound" << soundFile << "\n";
         return 1;
     }
 
@@ -31,7 +32,7 @@ int beepTone()
 
     sound.play();  // Play the beep sound
 
-    // Wait until sound finishes playing
+    /* Wait until sound finishes playing */
     while (sound.getStatus() == sf::Sound::Playing) {
         sf::sleep(sf::milliseconds(100));
     }
@@ -87,6 +88,6 @@ int main() {
     sudo-apt-get install libsfml-dev
 
     linux command to compile this program
-    g++ 2026.06.21_pomodoro.cpp -o pomodoro_beep -lsfml-audio -lsfml-system
+    g++ 2025.06.21_pomodoro.cpp -o pomodoro_beep -lsfml-audio -lsfml-system
 
 */
