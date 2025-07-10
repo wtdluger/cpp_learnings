@@ -39,9 +39,16 @@ int main() {
         gcc --version 
     provides the version of the gnu compiler being used
 
+    Default Compiling command
+        g++ 2025.0618_cpp_version.cpp -o cpp_version
+    Force Compiling with C++20
+        g++ g++ 2025.0618_cpp_version.cpp -o cpp_version_20 -std=c++20
+
+
+    ===========
     Values for __cplusplus macro obtained from:
     https://en.cppreference.com/w/cpp/preprocessor/replace#Predefined_macros
 
     Original code snippet obtained from:
-    https://coderslegacy.com/c/check-cpp-compiler-version/
+    https://coderslegacy.com/c/check-cpp-compiler-version/    
 */
