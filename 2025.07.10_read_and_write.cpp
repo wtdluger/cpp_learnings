@@ -1,29 +1,15 @@
-#include <iostream>
+#include<iostream>
 #include<fstream>
 #include<sstream>
+#include<cmath>
 #include <string>
-#include <list>
-#include <vector>
-#include <chrono>
-#include <thread>
-#include "wtdlib.h"
-using namespace std;
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
 
-/* prints a vector of integers */
-void printVector(vector<int>& arr) {
-    for (int element : arr) {
-        std::cout << element << ", ";
-    }        
-    cout << endl;
-}
-
-/* prints a list of integers */
-void printList(list<int>& arr) {
-    for (int element : arr) {
-        cout << element << ", ";
-    }        
-    cout << endl;
-}
+const double PI = 4.0*std::atan(1.0);
+const double EULERNUM = std::exp(1.0);
 
 /* read a csv file */
 std::vector<std::vector<std::string>> readCSV(std::string file_loc)
@@ -76,20 +62,28 @@ void writeCSV(
     }
 }
 
-/* 
-    Function takes input in milliseconds 
-    and pauses the program for that amount of time. 
-    Utilizes the chrono and thread headers
-*/
-void timer(int duration_ms) {
-    chrono::milliseconds duration_time(duration_ms);
-    thread t([&]() {
-        this_thread::sleep_for(duration_time);
-    });
-    t.join();
+
+int main()
+{
+    // read AM1.5G
+    std::string csv_file = "AM1_5G.csv";
+    std::vector<std::vector<std::string>> csv_data = readCSV(csv_file);
+
+    cout << "Size of csv_data: " << sizeof(csv_data) << endl;
+    
+    // rename header row
+    csv_data[0] = {"Wavelength","AM1.5E","AM1.5G","AM1.5D","\n"};
+    
+    std::string outputFileName = "example_r&w.txt";
+    writeCSV(csv_data, outputFileName);
+    
+    return 0;
 }
 
 /*
     linux command to compile linked files
-    g++ wtdlib.cpp main.cpp -o program_name
+    g++ 2025.07.10_read_and_write.cpp -o read_and_write
+
+    linux command to run
+    ./call_read_and_write
 */
